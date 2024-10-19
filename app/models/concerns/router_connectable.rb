@@ -2,13 +2,11 @@ module RouterConnectable
   extend ActiveSupport::Concern
 
   def with_router
-    if block_given?
-      api = RouterOS::API.new(self.host, self.port)
-      yield api
-      api.close
-    end
+    yield api = RouterOS::API.new(self.host, self.port) if block_given?
   rescue StandardError => e
     e.message
+  ensure
+    api.close unless api.nil?
   end
 
   def execute_router_cmd(cmd, args = [])
@@ -21,7 +19,7 @@ module RouterConnectable
 
       return cmd_response.error_message if cmd_response.error?
 
-      return cmd_response.data.empty? ? true : cmd_response.data
+      cmd_response.data.empty? ? true : cmd_response.data
     end
   end
 end
