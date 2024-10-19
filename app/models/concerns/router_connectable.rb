@@ -21,7 +21,7 @@ module RouterConnectable
 
       return cmd_response.error_message if cmd_response.error?
 
-      cmd_response.data.empty? ? true : cmd_response.data
+      return cmd_response.data.empty? ? true : cmd_response.data
     end
   end
 end
