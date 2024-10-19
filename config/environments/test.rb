@@ -31,9 +31,6 @@ Rails.application.configure do
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
 
-  config.active_record.encryption.primary_key = "KSfWJpuJUImmFWdETTRV2ZI3PK1uNbWJ"
-  config.active_record.encryption.deterministic_key = "TG8xwEWiqBIEk9TDfZ2YsCUnJnSWVbRX"
-  config.active_record.encryption.key_derivation_salt = "WmAFHikXr8qWx6HIWoDj4S8CKGYFOvBh"
   config.active_record.encryption.encrypt_fixtures = true
 
   # Store uploaded files on the local file system in a temporary directory.
