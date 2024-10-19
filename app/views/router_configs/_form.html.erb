@@ -1,0 +1,54 @@
+<%= form_with(model: router_config) do |form| %>
+  <% if router_config.errors.any? %>
+    <div class="mt-2 mb-2 notification is-danger">
+      <h5><%= pluralize(router_config.errors.count, "error") %> prevented this configuration from being saved:</h5>
+      <ul>
+        <% router_config.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="fixed-grid">
+    <div class="grid">
+      <div class="field cell is-col-span-2">
+        <%= form.label :name, class: "label" %>
+        <div class="control">
+          <%= form.text_field :name, class: "input" %>
+        </div>
+      </div>
+      <div class="field cell">
+        <%= form.label :host, class: "label" %>
+        <div class="control">
+          <%= form.text_field :host, class: "input" %>
+        </div>
+      </div>
+      <div class="field cell">
+        <%= form.label :port, class: "label" %>
+        <div class="control">
+          <%= form.number_field :port, placeholder: 8728, class: "input" %>
+        </div>
+      </div>
+      <div class="field cell">
+        <%= form.label :user, class: "label" %>
+        <div class="control">
+          <%= form.text_field :user, class: "input" %>
+        </div>
+      </div>
+      <div class="field cell">
+        <%= form.label :password, class: "label" %>
+        <div class="control">
+          <%= form.password_field :password, class: "input" %>
+        </div>
+      </div>
+      <div class="mt-3 mb-3 field is-grouped cell is-col-span-2">
+        <div class="control">
+          <%= form.submit class: "button is-link" %>
+        </div>
+        <div class="control">
+          <%= link_to "Cancel", router_configs_path, class: 'button is-link is-light' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: test
+  host: test.com
+  port: 8728
+  user: test
+  password: test
+
+two:
+  name: another_test
+  host: 192.168.1.1
+  port: 8729
+  user: test
+  password: test

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Isp Monitor" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= yield :head %>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="/icon.png">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+  </head>
+  <body>
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="<%= root_path %>">
+          <img src="/icon.png" >
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <%= link_to "Home", root_path, class: 'navbar-item' %>
+          <%= link_to "Router Configuration", router_configs_path, class: 'navbar-item' %>
+        </div>
+      </div>
+    </nav>
+    <div class="content container">
+      <% if notice %>
+        <div class="mt-2 mb-2 notification is-info">
+          <%= notice %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>ISP Monitor</strong> by <a href="https://github.com/mcbarros">Marcelo Barros</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
