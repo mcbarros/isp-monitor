@@ -14,7 +14,6 @@ We use the Active Record Encryption to encrypt all password saved on the databas
     - [ ] Configurable email notification when a route becomes active or inactive
 - [ ] Authentication and a small configuration screen to configure a default user
 - [ ] Possible implementation of a ping feature to test ISPs
-- [ ] Helpers for the UI
 
 ## License
 

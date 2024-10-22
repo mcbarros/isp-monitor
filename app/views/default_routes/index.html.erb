@@ -21,22 +21,22 @@
                 <p>Distance: <strong><%= route.distance %></strong></p>
                 <p>Immediate Gateway: <strong><%= route.immediate_gw %></strong></p>
                 <% if route.primary %>
-                  <span class="tag is-white">Primary</span>
+                  <%= badge "Primary", "white" %>
                 <% end %>
                 <% if route.dynamic %>
-                  <span class="tag is-primary">Dynamic</span>
+                  <%= badge "Dynamic", "primary" %>
                 <% end %>
                 <% if route.static %>
-                  <span class="tag is-info">Static</span>
+                  <%= badge "Static", "info" %>
                 <% end %>
                 <% if route.active %>
-                  <span class="tag is-success">Active</span>
+                  <%= badge "Active", "success" %>
                 <% end %>
                 <% if route.inactive %>
-                  <span class="tag is-warning">Inactive</span>
+                  <%= badge "Inactive", "warning" %>
                 <% end %>
                 <% if route.disabled %>
-                  <span class="tag is-danger">Disabled</span>
+                  <%= badge "Disabled", "danger" %>
                 <% end %>
                 <footer class="mt-3 card-footer">
                   <%= link_to(
