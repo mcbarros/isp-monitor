@@ -9,7 +9,7 @@
       </ul>
     </div>
   <% end %>
-  <div class="fixed-grid">
+  <div class="fixed-grid" data-controller="router-config-form">
     <div class="grid">
       <div class="field cell is-col-span-2">
         <%= form.label :name, class: "label" %>
@@ -40,6 +40,25 @@
         <div class="control">
           <%= form.password_field :password, class: "input" %>
         </div>
+      </div>
+      <div class="field cell">
+        <%= form.label :notification_email, class: "label" %>
+        <div class="control">
+          <%= form.text_field :notification_email, class: "input", data: { "router-config-form-target": "extraFields" } %>
+        </div>
+      </div>
+      <div class="field cell">
+        <%= form.label :max_check_entries, class: "label" %>
+        <div class="control">
+          <%= form.number_field :max_check_entries, class: "input", data: { "router-config-form-target": "extraFields" } %>
+        </div>
+        <p class="help">0 for no limit</p>
+      </div>
+      <div class="field cell">
+        <%= form.label :recurrent_checks, class: "checkbox" do %>
+          <%= form.check_box :recurrent_checks, data: { "router-config-form-target": "checkRoutes", "action": "router-config-form#toggleCheckSection" } %>
+          Check routes every 5 minutes
+        <% end%>
       </div>
       <div class="mt-3 mb-3 field is-grouped cell is-col-span-2">
         <div class="control">

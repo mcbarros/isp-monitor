@@ -5,4 +5,6 @@
 import { application } from "./application"
 
 import DefaultRoutesController from "./default_routes_controller"
+import RouterConfigFormController from "./router_config_form_controller"
 application.register("default-routes", DefaultRoutesController)
+application.register("router-config-form", RouterConfigFormController)

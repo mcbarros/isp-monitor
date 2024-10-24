@@ -131,6 +131,7 @@ GEM
       railties (>= 6.0.0)
     json (2.7.3)
     language_server-protocol (3.17.0.3)
+    lefthook (1.8.1)
     logger (1.6.1)
     loofah (2.22.0)
       crass (~> 1.0.2)
@@ -332,6 +333,7 @@ DEPENDENCIES
   delayed_job_active_record
   jbuilder
   jsbundling-rails
+  lefthook
   puma (>= 5.0)
   rails (~> 7.2.1)
   routeros-api (~> 0.4.0)

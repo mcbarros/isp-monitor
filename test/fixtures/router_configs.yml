@@ -6,6 +6,7 @@ one:
   port: 8728
   user: test
   password: test
+  recurrent_checks: true
 
 two:
   name: another_test
@@ -13,3 +14,12 @@ two:
   port: 8729
   user: test
   password: test
+  recurrent_checks: true
+
+three:
+  name: other_another_test
+  host: 192.168.1.2
+  port: 8729
+  user: test
+  password: test
+  recurrent_checks: false

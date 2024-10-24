@@ -1,0 +1,5 @@
+pre-commit:
+  commands:
+    backend-linter:
+      glob: "*.rb" # glob filter
+      run: bundle exec rubocop {staged_files}

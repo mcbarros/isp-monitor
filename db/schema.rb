@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_24_125038) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_24_191655) do
   create_table "default_route_statuses", force: :cascade do |t|
     t.integer "router_config_id", null: false
     t.string "route_id"
@@ -44,6 +44,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_24_125038) do
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "recurrent_checks", default: false
+    t.string "notification_email"
+    t.integer "max_check_entries", default: 0
   end
 
   add_foreign_key "default_route_statuses", "router_configs"

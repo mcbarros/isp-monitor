@@ -40,16 +40,21 @@
                 <% end %>
                 <footer class="mt-3 card-footer">
                   <%= link_to(
-                  route.disabled ? "Enable" : "Disable",
-                  "#",
-                  class: "card-footer-item",
-                  data: {
-                    action: "default-routes#updateRoute",
-                    "default-routes-url-param":  update_route_router_config_path(router_config, route.id),
-                    "default-routes-method-param":  "put",
-                    "default-routes-new-status-param": route.disabled
-                  }
-                ) %>
+                    "History",
+                    route_history_router_config_path(router_config, route.id),
+                    class: "card-footer-item"
+                  ) %>
+                  <%= link_to(
+                    route.disabled ? "Enable" : "Disable",
+                    "#",
+                    class: "card-footer-item",
+                    data: {
+                      action: "default-routes#updateRoute",
+                      "default-routes-url-param":  update_route_router_config_path(router_config, route.id),
+                      "default-routes-method-param":  "put",
+                      "default-routes-new-status-param": route.disabled
+                    }
+                  ) %>
                 </footer>
               </div>
             </div>

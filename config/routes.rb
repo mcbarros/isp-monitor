@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :router_configs, except: :show do
     put "default_routes/:route_id", on: :member, to: "default_routes#update", as: :update_route
+    get "default_routes/:route_id/history", on: :member, to: "default_routes#history", as: :route_history
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

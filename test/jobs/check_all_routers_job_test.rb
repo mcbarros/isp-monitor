@@ -8,9 +8,9 @@ class CheckAllRoutersJobTest < ActiveJob::TestCase
       CheckAllRoutersJob.new.perform
     end
 
-    assert_equal RouterConfig.count, ids.size
+    assert_equal RouterConfig.checkable.count, ids.size
 
-    RouterConfig.all.each do |item|
+    RouterConfig.checkable.each do |item|
       assert_includes ids, item.id
     end
   end

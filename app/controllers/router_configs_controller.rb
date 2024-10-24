@@ -50,13 +50,13 @@ class RouterConfigsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_router_config
-      @router_config = RouterConfig.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_router_config
+    @router_config = RouterConfig.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def router_config_params
-      params.require(:router_config).permit(:name, :host, :port, :user, :password)
-    end
+  # Only allow a list of trusted parameters through.
+  def router_config_params
+    params.require(:router_config).permit(:name, :host, :port, :user, :password, :recurrent_checks, :notification_email, :max_check_entries)
+  end
 end

@@ -4,8 +4,7 @@ class CheckAllRoutersJob < CronJob
   queue_as :default
 
   def perform
-    # TODO: add config to wether check or not and filter here
-    configs = RouterConfig.all
+    configs = RouterConfig.checkable
 
     configs.each do |router_config|
       CheckRouterJob.perform_later(router_config.id)

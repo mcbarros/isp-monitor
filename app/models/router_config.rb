@@ -7,6 +7,8 @@ class RouterConfig < ApplicationRecord
   validates :name, :host, :port, presence: true
   validates :port, numericality: { only_integer: true, greater_than: 0 }
 
+  scope :checkable, -> { where(recurrent_checks: true) }
+
   encrypts :password
 
   def find_default_routes
