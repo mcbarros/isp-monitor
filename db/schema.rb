@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_14_221117) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_24_125038) do
+  create_table "default_route_statuses", force: :cascade do |t|
+    t.integer "router_config_id", null: false
+    t.string "route_id"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["router_config_id"], name: "index_default_route_statuses_on_router_config_id"
+  end
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string "cron"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
   create_table "router_configs", force: :cascade do |t|
     t.string "name"
     t.string "host"
@@ -20,4 +45,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_14_221117) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "default_route_statuses", "router_configs"
 end

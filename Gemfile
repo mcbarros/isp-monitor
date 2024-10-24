@@ -38,6 +38,10 @@ gem "bootsnap", require: false
 
 gem "routeros-api", "~> 0.4.0"
 
+gem "delayed_job_active_record"
+gem "delayed_cron_job"
+gem "daemons"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"

@@ -1,6 +1,8 @@
 class RouterConfig < ApplicationRecord
   include RouterConnectable
 
+  has_many :default_route_statuses, dependent: :destroy
+
   validates :name, uniqueness: true
   validates :name, :host, :port, presence: true
   validates :port, numericality: { only_integer: true, greater_than: 0 }
