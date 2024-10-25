@@ -7,6 +7,7 @@ one:
   user: test
   password: test
   recurrent_checks: true
+  max_check_entries: 0
 
 two:
   name: another_test
@@ -15,6 +16,7 @@ two:
   user: test
   password: test
   recurrent_checks: true
+  max_check_entries: 2
 
 three:
   name: other_another_test
@@ -23,3 +25,4 @@ three:
   user: test
   password: test
   recurrent_checks: false
+  max_check_entries: 4

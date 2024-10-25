@@ -27,5 +27,7 @@ class CheckRouterJob < ApplicationJob
         status: new_status
       )
     end
+
+    CleanRouterJob.perform_later(router_config_id)
   end
 end

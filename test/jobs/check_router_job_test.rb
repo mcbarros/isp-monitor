@@ -13,7 +13,6 @@ class CheckRouterJobTest < ActiveJob::TestCase
     end
   end
 
-
   test "raises an error if the router config doesnt exist" do
     assert_raises(ActiveRecord::RecordNotFound) do
       CheckRouterJob.new.perform("no-id")
@@ -26,6 +25,18 @@ class CheckRouterJobTest < ActiveJob::TestCase
         CheckRouterJob.new.perform(@router_config.id)
       end
     end
+  end
+
+  test "calls clean router job" do
+    clean_id = nil
+
+    with_default_routes([]) do
+      CleanRouterJob.stub(:perform_later, ->(id) { clean_id = id }) do
+        CheckRouterJob.new.perform(@router_config.id)
+      end
+    end
+
+    assert_equal @router_config.id, clean_id
   end
 
   test "doesnt create a route status for disabled routes" do
