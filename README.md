@@ -1,6 +1,6 @@
 # ISP Monitor
 
-Small project to manage and monitor ISP providers interacting with MikroTik router through [RouteOS API](https://rubygems.org/gems/routeros-api)
+Small project to manage and monitor ISP providers interacting with MikroTik router through [RouterOS API](https://rubygems.org/gems/routeros-api)
 
 This project is meant to be used as selfhosted app, be careful with any other use.
 
@@ -24,7 +24,7 @@ services:
     network_mode: host
   bg-runner:
     image: mcbarros/isp-monitor:latest
-    cmd: ["./bin/delayed_job", "start"]
+    cmd: ["./bin/rails", "jobs:work"]
     volumes:
       - type: bind
         source: /my-host-path/storage
