@@ -10,6 +10,8 @@ class CheckRouterJob < ApplicationJob
       return
     end
 
+    changes = []
+
     routes.each do |route|
       next if route.disabled
 
@@ -17,7 +19,7 @@ class CheckRouterJob < ApplicationJob
       new_status = route.active ? "active" : "inactive"
 
       if !last_status.nil? && last_status != new_status
-        # TODO: send notification
+        changes << route
         logger.info("Route #{route.id} changed from #{last_status} to #{new_status}")
       end
 
@@ -28,6 +30,7 @@ class CheckRouterJob < ApplicationJob
       )
     end
 
+    NotificationMailer.with(changes: changes, destination: router_config.notification_email).status_change.deliver_now if changes.size > 0
     CleanRouterJob.perform_later(router_config_id)
   end
 end

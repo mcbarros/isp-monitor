@@ -1,0 +1,5 @@
+Status change report
+===============================================
+<% @changes.each do |route| %>
+  - <%= route.name %>: <%= route.active ? 'active' : 'inactive' %>
+<% end %>

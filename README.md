@@ -34,7 +34,6 @@ services:
 
 ## Planned Features
 
-- [ ] Configurable email notification when a route becomes active or inactive
 - [ ] Authentication and a small configuration screen to configure a default user
 - [ ] Possible implementation of a ping feature to test ISPs
 

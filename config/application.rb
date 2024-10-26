@@ -24,5 +24,20 @@ module IspMonitor
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.active_job.queue_adapter = :delayed_job
+
+    if ENV["RAILS_SMTP_HOST"].present?
+      config.action_mailer.delivery_method = :smtp
+      config.action_mailer.smtp_settings = {
+        address: ENV["RAILS_SMTP_HOST"],
+        port: ENV["RAILS_SMTP_PORT"] || 587,
+        domain: ENV["RAILS_SMTP_DOMAIN"],
+        user_name: ENV["RAILS_SMTP_USERNAME"],
+        password: ENV["RAILS_SMTP_PASSWORD"],
+        authentication: ENV["RAILS_SMTP_AUTH_TYPE"] || "plain",
+        enable_starttls: true,
+        open_timeout: 5,
+        read_timeout: 5
+      }
+    end
   end
 end
