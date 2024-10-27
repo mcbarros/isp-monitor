@@ -32,6 +32,16 @@ services:
     network_mode: host
 ```
 
+### Email notification
+
+To set up your email notification, you need to configure the SMTP server using environment variables:
+- RAILS_SMTP_HOST - required
+- RAILS_SMTP_PORT - optional, default 587
+- RAILS_SMTP_DOMAIN - optional
+- RAILS_SMTP_USERNAME - required
+- RAILS_SMTP_PASSWORD - required
+- RAILS_SMTP_AUTH_TYPE - optional, default plain
+
 ## Planned Features
 
 - [ ] Authentication and a small configuration screen to configure a default user
