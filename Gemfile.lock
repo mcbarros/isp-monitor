@@ -131,7 +131,7 @@ GEM
       railties (>= 6.0.0)
     json (2.7.3)
     language_server-protocol (3.17.0.3)
-    lefthook (1.8.1)
+    lefthook (1.8.2)
     logger (1.6.1)
     loofah (2.22.0)
       crass (~> 1.0.2)
