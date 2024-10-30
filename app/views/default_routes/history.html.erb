@@ -4,6 +4,20 @@
   <%= link_to "Back", root_path, class: 'button is-link' %>
 </div>
 <div id="route_history" class="mb-3">
+  <div class="is-flex mb-3">
+    <div>
+      <% @time_by_status.each_pair do |status, time| %>
+        <div>
+          <%= status == 'active' ? active_text : inactive_text %> for <%= time_span(time) %>
+        </div>
+      <% end %>
+    </div>
+    <div class="ml-3">
+      <div>Last <%= active_text %> at: <%= safe_l(@last_time_active_at) %></div>
+      <div>Last <%= inactive_text %> at: <%= safe_l(@last_time_inactive_at) %></div>
+    </div>
+  </div>
+
   <% if @history.size > 0 %>
     <table class="table is-bordered is-striped is-fullwidth">
       <thead>
@@ -15,8 +29,8 @@
       <tbody>
         <% @history.each do |entry| %>
           <tr>
-            <td><%=l(entry.created_at)%></td>
-            <td class="is-<%=entry.status == 'active' ? 'success' : 'danger'%>">
+            <td><%= l(entry.created_at) %></td>
+            <td class="is-<%= entry.active? ? 'success' : 'danger' %>">
               <%=entry.status%>
             </td>
           </tr>

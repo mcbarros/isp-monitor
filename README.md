@@ -51,6 +51,8 @@ To set up your email notification, you need to configure the SMTP server using e
 
 This project uses [lefthook](https://github.com/evilmartians/lefthook) to manage git hooks. Just run `lefthook install` after the `bundle install` to set every thing up.
 
+You also need `yarn` installed to the javascript and css build work. To run the application in dev use `bin/dev`.
+
 ## License
 
 The app is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

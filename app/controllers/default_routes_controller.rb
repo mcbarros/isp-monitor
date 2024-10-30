@@ -27,6 +27,26 @@ class DefaultRoutesController < ApplicationController
 
   def history
     @history = @router_config.default_route_statuses.where(route_id: params[:route_id])
+    @last_time_active_at = nil
+    @last_time_inactive_at = nil
+    @time_by_status = { "active" => 0, "inactive" => 0 }
+    current_time = Time.now
+    current_status = @history.size > 0 ? @history[0].status : "active"
+
+    if @history.size > 0
+      @history.each do |item|
+        if item.status != current_status
+          @time_by_status[current_status] = @time_by_status[current_status] + (current_time - item.created_at)
+          current_status = item.status
+          current_time = item.created_at
+        end
+
+        @last_time_active_at = item.created_at if item.active? && @last_time_active_at.nil?
+        @last_time_inactive_at = item.created_at if !item.active? && @last_time_inactive_at.nil?
+      end
+
+      @time_by_status[current_status] = @time_by_status[current_status] + (current_time - @history.last.created_at)
+    end
   end
 
   private

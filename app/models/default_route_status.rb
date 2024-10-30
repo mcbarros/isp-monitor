@@ -9,4 +9,8 @@ class DefaultRouteStatus < ApplicationRecord
   def self.find_last_status(router_config_id:, route_id:)
     where(router_config_id: router_config_id, route_id: route_id).first
   end
+
+  def active?
+    status == "active"
+  end
 end
