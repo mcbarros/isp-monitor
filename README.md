@@ -42,10 +42,6 @@ To set up your email notification, you need to configure the SMTP server using e
 - RAILS_SMTP_PASSWORD - required
 - RAILS_SMTP_AUTH_TYPE - optional, default plain
 
-## Planned Features
-
-- [ ] Authentication and a small configuration screen to configure a default user
-
 ## Development
 
 This project uses [lefthook](https://github.com/evilmartians/lefthook) to manage git hooks. Just run `lefthook install` after the `bundle install` to set every thing up.

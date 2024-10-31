@@ -1,4 +1,5 @@
 class DefaultRoutesController < ApplicationController
+  before_action :requires_login
   before_action :set_router_config, only: %i[ update history ]
 
   def index

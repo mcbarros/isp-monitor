@@ -3,6 +3,7 @@ require "test_helper"
 class RouterConfigsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @router_config = router_configs(:one)
+    login
   end
 
   test "should get index" do

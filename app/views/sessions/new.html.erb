@@ -1,0 +1,27 @@
+<% content_for :title, "Login" %>
+<div class="mt-3 mb-3 is-flex">
+  <h1>Login</h1>
+</div>
+<%= form_with(url: login_path) do |form| %>
+  <div class="fixed-grid">
+    <div class="grid">
+      <div class="field cell is-col-span-2">
+        <%= form.label :email, class: "label" %>
+        <div class="control">
+          <%= form.text_field :email, class: "input" %>
+        </div>
+      </div>
+      <div class="field cell is-col-span-2">
+        <%= form.label :password, class: "label" %>
+        <div class="control">
+          <%= form.password_field :password, class: "input" %>
+        </div>
+      </div>
+      <div class="mt-3 mb-3 field is-grouped cell is-col-span-2">
+        <div class="control">
+          <%= form.submit class: "button is-link" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

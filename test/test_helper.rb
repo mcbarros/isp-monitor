@@ -12,5 +12,13 @@ module ActiveSupport
     fixtures :all
 
     # Add more helper methods to be used by all tests here...
+    def login
+      user = User.create(email: "admin@isp-monitor.com", password: "test")
+      post login_url(email: user.email, password: user.password)
+    end
+
+    def current_user
+      User.find(session[:current_user_id])
+    end
   end
 end

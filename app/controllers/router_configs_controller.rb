@@ -1,4 +1,5 @@
 class RouterConfigsController < ApplicationController
+  before_action :requires_login
   before_action :set_router_config, only: %i[ edit update destroy ]
 
   # GET /router_configs

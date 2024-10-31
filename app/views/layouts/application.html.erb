@@ -26,11 +26,25 @@
           <%= link_to "Router Configuration", router_configs_path, class: 'navbar-item' %>
         </div>
       </div>
+      <% if current_user.present? %>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <%= link_to "Logout", login_path, data: { turbo_method: "delete" }, method: :delete, class: 'button is-primary' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </nav>
     <div class="content container">
       <% if notice %>
         <div class="mt-2 mb-2 notification is-info">
           <%= notice %>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="mt-2 mb-2 notification is-danger">
+          <%= alert %>
         </div>
       <% end %>
       <%= yield %>
