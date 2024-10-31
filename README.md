@@ -45,7 +45,6 @@ To set up your email notification, you need to configure the SMTP server using e
 ## Planned Features
 
 - [ ] Authentication and a small configuration screen to configure a default user
-- [ ] Possible implementation of a ping feature to test ISPs
 
 ## Development
 

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "default_routes/index"
+  get "default_routes", to: "default_routes#index"
 
   resources :router_configs, except: :show do
     put "default_routes/:route_id", on: :member, to: "default_routes#update", as: :update_route

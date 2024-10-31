@@ -4,12 +4,11 @@ class DefaultRoutesController < ApplicationController
   def index
     router_configs = RouterConfig.all
     @default_routes = Hash.new
+    @current_ip_address = Ipify.get_current_ip
 
     router_configs.each do |router_config|
       @default_routes[router_config] = router_config.find_default_routes
     end
-
-    # https://www.ipify.org/
   end
 
   def update
