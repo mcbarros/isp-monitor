@@ -8,7 +8,7 @@
     <div>
       <% @time_by_status.each_pair do |status, time| %>
         <div>
-          <%= status == 'active' ? active_text : inactive_text %> for <%= time_span(time) %>
+          <%= status == 'active' ? active_text : inactive_text %> for <%= time_span_l(time) %>
         </div>
       <% end %>
     </div>
